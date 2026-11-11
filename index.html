@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Café de Barrio: proyecto académico de una cafetería con menú y formulario de contacto.">
+  <title>Café de Barrio | Un buen café, cerca de ti</title>
+  <link rel="icon" href="img/taza.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/estilos.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+  <header class="encabezado">
+    <div class="contenedor barra">
+      <a class="marca" href="#inicio" aria-label="Café de Barrio, inicio">Café de Barrio<span>CAFÉ Y PAN RECIÉN HECHO</span></a>
+      <button class="boton-menu" type="button" aria-controls="navegacion" aria-expanded="false">Menú <span aria-hidden="true">☰</span></button>
+      <nav id="navegacion" aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#carta">La carta</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#contacto">Escríbenos</a>
+      </nav>
+    </div>
+  </header>
+  <main id="contenido">
+    <section class="portada contenedor" id="inicio" aria-labelledby="titulo">
+      <div class="presentacion">
+        <p class="etiqueta">UNA PAUSA EN TU DÍA</p>
+        <h1 id="titulo">Un buen café.<br>Sin tanto afán.</h1>
+        <p>Café recién preparado, algo rico para acompañar y una mesa para conversar. Así de sencillo.</p>
+        <a class="boton" href="#carta">Conoce la carta <span aria-hidden="true">↗</span></a>
+        <p class="nota">Hecho con calma. Servido con gusto.</p>
+      </div>
+      <figure class="imagen-portada">
+        <img src="img/cafe-mesa.svg" alt="Ilustración de una taza de café con un pan sobre una mesa" width="600" height="480">
+        <figcaption>El plan de siempre, con el café de siempre.</figcaption>
+      </figure>
+    </section>
+    <section class="seccion carta" id="carta" aria-labelledby="titulo-carta">
+      <div class="contenedor">
+        <div class="titulo-seccion"><div><p class="etiqueta">PARA TODOS LOS DÍAS</p><h2 id="titulo-carta">Nuestra carta</h2></div><p>Unos favoritos de la casa.<br>Precios en pesos colombianos.</p></div>
+        <div class="filtros" role="group" aria-label="Filtrar productos">
+          <button class="filtro activo" type="button" data-categoria="todos" aria-pressed="true">Todo</button>
+          <button class="filtro" type="button" data-categoria="bebidas" aria-pressed="false">Bebidas</button>
+          <button class="filtro" type="button" data-categoria="panaderia" aria-pressed="false">Panadería</button>
+        </div>
+        <p id="estado-filtro" class="solo-lector" aria-live="polite"></p>
+        <div class="productos">
+          <article class="producto" data-tipo="bebidas">
+            <img src="img/tinto.svg" alt="Taza pequeña de café negro" width="480" height="300" loading="lazy">
+            <div class="detalle"><div class="nombre-precio"><h3>Tinto de la casa</h3><span>$4.000</span></div><p>Un café negro, suave y recién hecho.</p></div>
+          </article>
+          <article class="producto" data-tipo="bebidas">
+            <img src="img/latte.svg" alt="Taza de café con leche y espuma" width="480" height="300" loading="lazy">
+            <div class="detalle"><div class="nombre-precio"><h3>Café con leche</h3><span>$6.500</span></div><p>La mezcla de siempre para empezar el día.</p></div>
+          </article>
+          <article class="producto" data-tipo="panaderia">
+            <img src="img/croissant.svg" alt="Pan en forma de media luna sobre un plato" width="480" height="300" loading="lazy">
+            <div class="detalle"><div class="nombre-precio"><h3>Croissant</h3><span>$5.000</span></div><p>Doradito por fuera, suave por dentro.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="seccion contenedor nosotros" id="nosotros" aria-labelledby="titulo-nosotros">
+      <div><p class="etiqueta">UN LUGAR CERCANO</p><h2 id="titulo-nosotros">La mesa está lista.</h2></div>
+      <div><p>La idea de Café de Barrio es simple: tener un lugar pequeño donde un café se pueda tomar sin afán. Una parada antes de clase, una charla entre amigos o un rato para leer.</p><p>No hace falta una ocasión especial para sentarse un momento.</p><p class="aclaracion">Cafetería ficticia creada para una actividad de Ingeniería Web.</p></div>
+    </section>
+    <section class="seccion contacto" id="contacto" aria-labelledby="titulo-contacto">
+      <div class="contenedor contacto-grid">
+        <div><p class="etiqueta">TE LEEMOS</p><h2 id="titulo-contacto">¿Nos cuentas algo?</h2><p>Deja una idea, una pregunta o una sugerencia.</p><p class="aviso">Este formulario es una demostración académica. Valida los campos en el navegador; no envía ni guarda tus datos.</p></div>
+        <form id="formulario">
+          <div class="campos"><div><label for="nombre">Nombre</label><input id="nombre" name="nombre" type="text" autocomplete="given-name" maxlength="60" required></div><div><label for="correo">Correo electrónico</label><input id="correo" name="correo" type="email" autocomplete="email" required></div></div>
+          <label for="mensaje">Mensaje</label><textarea id="mensaje" name="mensaje" rows="4" minlength="10" maxlength="500" required></textarea>
+          <button class="boton" type="submit">Validar mensaje <span aria-hidden="true">↗</span></button>
+          <p id="respuesta" class="respuesta" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer class="pie"><div class="contenedor"><p>Café de Barrio</p><p>Daniel Romero · Ingeniería Web · 2026</p><a href="#inicio">Volver al inicio ↑</a></div></footer>
+</body>
+</html>

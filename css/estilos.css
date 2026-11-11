@@ -1,0 +1,103 @@
+/* Base para celular. Las columnas se agregan cuando hay más espacio. */
+:root {
+  --fondo: #faf7f0;
+  --tinta: #292e25;
+  --verde: #354c3d;
+  --suave: #e8ecdf;
+  --borde: #d7d8ca;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 20px; }
+body { margin: 0; background: var(--fondo); color: var(--tinta); font-family: Arial, sans-serif; line-height: 1.6; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+button, input, textarea { font: inherit; }
+button, .boton { cursor: pointer; }
+button, a, input, textarea { -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 3px solid #976524; outline-offset: 4px; }
+[hidden] { display: none !important; }
+.contenedor { width: min(1120px, 90%); margin-inline: auto; }
+h1, h2, h3, p, figure { margin: 0; }
+h1, h2, .marca, .pie > div > p:first-child { font-family: Georgia, serif; }
+h1 { font-size: clamp(2.65rem, 5vw, 4.7rem); line-height: 1.08; font-weight: 500; letter-spacing: -1.5px; margin: 12px 0 22px; }
+h2 { font-size: clamp(2rem, 3.5vw, 2.7rem); line-height: 1.15; font-weight: 500; }
+h3 { font-size: 1.05rem; }
+.etiqueta { font-size: .72rem; font-weight: bold; letter-spacing: 2px; color: var(--verde); }
+.encabezado { border-bottom: 1px solid var(--borde); }
+.barra { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; padding-block: 18px; gap: 18px; }
+.marca { text-decoration: none; font-size: 1.5rem; line-height: 1.25; }
+.marca span { display: block; font-family: Arial, sans-serif; font-size: .55rem; letter-spacing: 1.7px; margin-top: 5px; }
+.boton-menu { display: none; border: 1px solid var(--borde); border-radius: 5px; padding: 8px 12px; color: var(--tinta); background: transparent; }
+.boton-menu span { margin-left: 8px; }
+nav { display: flex; flex-wrap: wrap; gap: 12px 22px; width: 100%; }
+nav a { text-decoration: none; font-size: .92rem; padding-block: 6px; }
+nav a:hover { text-decoration: underline; text-underline-offset: 5px; }
+/* Sin JavaScript los enlaces siguen visibles. */
+.js .boton-menu { display: inline-block; }
+.js nav { display: none; flex-direction: column; gap: 3px; }
+.js nav.abierto { display: flex; }
+.portada { display: grid; gap: 30px; padding-block: 44px; align-items: center; }
+.presentacion > p:not(.etiqueta) { max-width: 390px; }
+.boton { display: inline-flex; align-items: center; justify-content: space-between; gap: 28px; background: var(--verde); color: white; padding: 12px 20px; border: 1px solid var(--verde); border-radius: 4px; text-decoration: none; font-size: .92rem; min-height: 46px; }
+.presentacion .boton { margin-top: 25px; }
+.boton:hover { background: #25392c; }
+.presentacion .nota { font-size: .75rem; color: #626958; margin-top: 16px; }
+.imagen-portada { background: #e5e8d9; border-radius: 70px 8px 8px 8px; overflow: hidden; }
+.imagen-portada img { width: 100%; }
+figcaption { padding: 0 20px 18px; text-align: center; font-size: .75rem; color: #4f5848; }
+.seccion { padding-block: 48px; }
+.carta { background: #f0eee5; border-block: 1px solid var(--borde); }
+.titulo-seccion { display: flex; flex-direction: column; gap: 15px; }
+.titulo-seccion h2, .nosotros h2, .contacto h2 { margin-top: 10px; }
+.titulo-seccion > p { font-size: .85rem; color: #5e6557; }
+.filtros { display: flex; flex-wrap: wrap; gap: 10px; margin: 25px 0; }
+.filtro { border: 1px solid #a8af9c; background: transparent; color: var(--tinta); border-radius: 24px; padding: 9px 20px; min-height: 44px; }
+.filtro.activo { background: var(--verde); color: white; border-color: var(--verde); }
+.productos { display: grid; grid-template-columns: 1fr; gap: 22px; }
+.producto { background: var(--fondo); border: 1px solid var(--borde); border-radius: 6px; overflow: hidden; transition: transform .2s; }
+.producto:hover { transform: translateY(-4px); }
+.producto img { width: 100%; aspect-ratio: 8 / 5; object-fit: cover; }
+.detalle { padding: 20px; }
+.nombre-precio { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; flex-wrap: wrap; }
+.nombre-precio span { font-size: .9rem; color: var(--verde); font-weight: bold; white-space: nowrap; }
+.detalle p { margin-top: 8px; font-size: .85rem; color: #5e6557; }
+.nosotros, .contacto-grid { display: grid; gap: 24px; }
+.nosotros p + p { margin-top: 16px; }
+.aclaracion, .aviso { font-size: .8rem; color: #59624f; }
+.contacto { background: var(--suave); border-block: 1px solid var(--borde); }
+.contacto h2 + p { margin-top: 18px; }
+.aviso { margin-top: 20px; max-width: 360px; }
+.campos { display: grid; gap: 16px; }
+label { display: block; font-size: .85rem; margin-bottom: 6px; }
+input, textarea { width: 100%; min-width: 0; border: 1px solid #949e88; border-radius: 4px; background: #fffcf5; padding: 11px 12px; color: var(--tinta); }
+textarea { resize: vertical; min-height: 115px; }
+form > label { margin-top: 16px; }
+form .boton { margin-top: 16px; }
+.respuesta { margin-top: 12px; font-size: .85rem; color: #244b2e; }
+.pie { padding-block: 25px; font-size: .75rem; }
+.pie .contenedor { display: flex; flex-direction: column; gap: 10px; }
+.pie > div > p:first-child { font-size: 1.2rem; }
+.saltar { position: absolute; top: -80px; left: 10px; z-index: 10; padding: 10px; background: white; }
+.saltar:focus { top: 10px; }
+.solo-lector { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+/* Tableta: la carta y los campos aprovechan dos columnas. */
+@media (min-width: 600px) {
+  .productos { grid-template-columns: repeat(2, 1fr); }
+  .campos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .titulo-seccion { flex-direction: row; justify-content: space-between; align-items: end; }
+  .seccion { padding-block: 60px; }
+}
+/* Desde 900px se muestra el menú completo y la portada se divide. */
+@media (min-width: 900px) {
+  .barra { flex-wrap: nowrap; padding-block: 23px; }
+  nav, .js nav { display: flex; width: auto; flex-direction: row; gap: 28px; }
+  .js .boton-menu { display: none; }
+  .portada { grid-template-columns: 1fr 1fr; gap: 60px; padding-block: 58px; }
+  .productos { grid-template-columns: repeat(3, 1fr); }
+  .nosotros, .contacto-grid { grid-template-columns: 1fr 1.3fr; gap: 75px; }
+  .pie .contenedor { flex-direction: row; justify-content: space-between; align-items: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .producto { transition: none; }
+}
